@@ -28,8 +28,8 @@ pipeline {
                     }
                     
                     echo "Running the new Docker container..."
-                    // Maps port 8080 on your host machine to port 80 in the container
-                    sh "docker run -d -p 8080:80 --name my-running-app ${IMAGE_NAME}:latest"
+                    // Maps port 8081 on your host machine to port 80 in the container
+                    sh "docker run -d -p 8081:80 --name my-running-app ${IMAGE_NAME}:latest"
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
     
     post {
         success {
-            echo "Pipeline completed successfully! App should be running on http://localhost:8080"
+            echo "Pipeline completed successfully! App should be running on http://localhost:8081"
         }
         failure {
             echo "Pipeline failed. Please check the logs."
